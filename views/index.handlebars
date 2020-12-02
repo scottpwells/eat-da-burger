@@ -1,0 +1,6 @@
+{{#each burgers}}
+{{#unless this.devour}}
+<li>{{this.burger_name}}<button class="btn btn-primary change-devour">Eat</button></li>
+<div></div>
+{{/unless}}
+{{/each}}
