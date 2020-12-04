@@ -16,12 +16,15 @@ router.get("/", function(req, res) {
   });
 });
 
-router.post("/burgers/create", function(req, res) {
- burger.create (req.body.burger_name);
- res.redirect("/")
+router.post("/burger/create", function(req, res) {
+ burger.create (req.body.burger_name, function(result) {
+   console.log(result)
+   res.redirect("/")
+  });
+  
 });
 
-router.put("/burgers/:id", function(req, res) {
+router.put("/burger/:id", function(req, res) {
 
 
   burger.update(req.params.id, function(res) {

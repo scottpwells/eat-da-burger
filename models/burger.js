@@ -13,12 +13,12 @@ var burger = {
     });
   },
   update: function(id, cb) {
-    var condition = "id=" + id
+    var condition = "id=" + id;
     orm.update("Burger", {devour: true}, condition, function(res) {
       cb(res);
     });
   },
 }
 
-// Export the database functions for the controller (catsController.js).
+// Export the database functions for the controller (burgerController.js).
 module.exports = burger;
