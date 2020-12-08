@@ -1,4 +1,4 @@
-var orm = require("../config/orm.js");
+var orm = require("../config/orm");
 
 var burger = {
   all: function(cb) {
@@ -17,6 +17,7 @@ var burger = {
     orm.update("Burger", {devour: true}, condition, function(res) {
       cb(res);
     });
+
   },
 }
 

@@ -1,21 +1,39 @@
+$(function() {
 
-
-  $(document).ready(function() {
-    $(".change-devour").on("submit", function(event) {
+    console.log("hello world");
+  // Add a new burger.
+  $(".create-form").on("submit", function(event) {
       event.preventDefault();
-      var burger_id = $(this)(".burger_name").val();
-      console.log(burger_id);
-      $.ajax({
-        method: "PUT",
-        url: "/burgers/" + burger_id
-      }).then(function(data) {
-        // reload page to display devoured burger in proper column
-        location.reload();
-      });
-    });
 
-    $(".change-devour").click(function(){
-      console.log("workng)")
-    })
+      var newBurger = {
+          burger_name: $("#newburger").val().trim(),
+          devoured:$("[name=devour]:checked").val().trim(),
+      };
+
+      // Send the POST request.
+      $.ajax("/burger/", {
+          type:"POST",
+          data: newBurger
+      }) .then(function(res) {
+          console.log("Added new burger");
+          // Reload the page to get the updated burger list.
+          location.reload();
+      });
   });
-    
+  
+  $(".change-devour").on("click", function(event) {
+      event.preventDefault();
+
+      var id = $(this).val();
+      console.log(id)
+   ;
+
+      // Send the PUT request.
+      $.ajax("/burger/" + id, {
+          method: "PUT",
+      }).then(function(data) {
+          console.log("Burger devour" + data);
+          location.reload();
+      });
+  });
+});

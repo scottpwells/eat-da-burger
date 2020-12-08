@@ -2,6 +2,7 @@ li {
     padding: 5px;
     margin: 5px;
     background: #faebd7;
+    max-width: 250px
   }
   
   .label {
@@ -18,3 +19,15 @@ li {
     margin-bottom: 5px;
   }
   
+  body {
+    background-color: #F6A90F;
+  }
+  
+  #top-bar {
+  padding-top: 10%;
+  max-width: 100%;
+  height: auto;
+}
+.container {
+  max-width: 660px;
+}
